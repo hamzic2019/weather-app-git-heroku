@@ -21,7 +21,7 @@
         forma.addEventListener('submit', (event) => {
             event.preventDefault();
 
-            fetch(`{{url}}ask?city=${city.value}`)
+            fetch(`/ask?city=${city.value}`)
                 .then(res => {
                     return res.json();
                 })

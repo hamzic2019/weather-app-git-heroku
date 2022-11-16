@@ -16,8 +16,8 @@ app.set('views', path.join(__dirname, './templates/views'));
 hbs.registerPartials(path.join(__dirname, './templates/partials'));
 
 app.get('/', (req, res) => {
-    let url = `http://localhost:3000/`;
-    res.render('index', {url});
+    //let url = `http://localhost:3000`;
+    res.render('index');
 })
 
 app.get('/ask', (req, res) => {
@@ -32,6 +32,7 @@ app.get('/ask', (req, res) => {
 
 
 const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
     console.log(`App is running on PORT: ${PORT}`);
 })
