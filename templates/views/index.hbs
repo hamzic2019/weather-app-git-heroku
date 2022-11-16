@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span class="display"></span>
+    <form class="forma" action="/ask" method="GET">
+        <input type="text" name="city" id="city" class="city">
+        <button type="submit">ASK FOR WEATHER</button>
+    </form>
+    
+    <script>
+        let forma = document.querySelector('.forma');
+        let city = document.querySelector('.city');
+        let display = document.querySelector('.display');
+
+        forma.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            fetch(`{{url}}ask?city=${city.value}`)
+                .then(res => {
+                    return res.json();
+                })
+                .then(data => {
+                    display.textContent = data.mssg;
+                });
+
+        });
+                
+    </script>
+</body>
+</html>
